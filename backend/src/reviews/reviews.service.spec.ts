@@ -117,7 +117,7 @@ describe('ReviewsService', () => {
     it('should update own review', async () => {
       prisma.review.findUnique.mockResolvedValue(mockReview);
 
-      const result = await service.update('review-1', 'user-1', { rating: 4 });
+      await service.update('review-1', 'user-1', { rating: 4 });
 
       expect(prisma.review.update).toHaveBeenCalled();
     });

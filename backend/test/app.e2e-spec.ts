@@ -7,7 +7,7 @@ import { GlobalExceptionFilter } from '../src/common/filters/global-exception.fi
 
 describe('Product Reviews API (e2e)', () => {
   let app: INestApplication;
-  let prisma: PrismaService;
+  let _prisma: PrismaService;
   let authToken: string;
   let testProductId: string;
 
@@ -29,7 +29,7 @@ describe('Product Reviews API (e2e)', () => {
     );
 
     await app.init();
-    prisma = app.get(PrismaService);
+    _prisma = app.get(PrismaService);
   });
 
   afterAll(async () => {
