@@ -16,7 +16,7 @@ export class ProductsService {
     const skip = (page - 1) * limit;
 
     const cacheKey = `products:${JSON.stringify(query)}`;
-    const cached = await this.cacheManager.get(cacheKey);
+    const cached = await this.cacheManager.get<Record<string, any>>(cacheKey);
     if (cached) return cached;
 
     const where: any = {};
