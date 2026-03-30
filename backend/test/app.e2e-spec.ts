@@ -2,12 +2,10 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { INestApplication, ValidationPipe } from '@nestjs/common';
 import * as request from 'supertest';
 import { AppModule } from '../src/app.module';
-import { PrismaService } from '../src/prisma/prisma.service';
 import { GlobalExceptionFilter } from '../src/common/filters/global-exception.filter';
 
 describe('Product Reviews API (e2e)', () => {
   let app: INestApplication;
-  let _prisma: PrismaService;
   let authToken: string;
   let testProductId: string;
 
@@ -29,7 +27,6 @@ describe('Product Reviews API (e2e)', () => {
     );
 
     await app.init();
-    _prisma = app.get(PrismaService);
   });
 
   afterAll(async () => {
